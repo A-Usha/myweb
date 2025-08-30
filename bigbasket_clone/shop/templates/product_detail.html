@@ -1,0 +1,26 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>{{ product.name }} - BigBasket Clone</title>
+</head>
+<body>
+    <h1>{{ product.name }}</h1>
+
+    {% if product.image %}
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" style="max-width:300px;">
+    {% endif %}
+
+    <p><strong>Category:</strong> {{ product.category.name }}</p>
+    <p><strong>Description:</strong> {{ product.description }}</p>
+    <p><strong>Price:</strong> ₹{{ product.price }}</p>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'add_to_cart' product.pk %}">🛒 Add to Cart</a>
+    {% else %}
+        <p><a href="{% url 'login' %}">Login</a> to add to cart.</p>
+    {% endif %}
+
+    <br><br>
+    <a href="{% url 'home' %}">← Back to Home</a>
+</body>
+</html>

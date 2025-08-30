@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Cart</title>
+</head>
+<body>
+    <h1>Your Cart</h1>
+    {% if products %}
+        <ul>
+            {% for product in products %}
+                <li>
+                    {{ product.name }} - ₹{{ product.price }}
+                </li>
+            {% endfor %}
+        </ul>
+        <p><strong>Total: ₹{{ total }}</strong></p>
+        <a href="{% url 'place_order' %}">Place Order</a>
+    {% else %}
+        <p>Your cart is empty.</p>
+    {% endif %}
+    <a href="{% url 'home' %}">Continue Shopping</a>
+</body>
+</html>
