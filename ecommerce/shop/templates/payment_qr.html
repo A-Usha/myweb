@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pay with UPI</title>
+</head>
+<body>
+    <h1>Scan to Pay</h1>
+    <p>Total Amount: ₹{{ amount }}</p>
+    <img src="{% url 'payment_qr' %}?amount={{ amount }}" alt="Payment QR">
+</body>
+</html>
